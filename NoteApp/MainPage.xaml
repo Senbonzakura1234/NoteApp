@@ -13,10 +13,8 @@
             <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel VerticalAlignment="Stretch" Grid.Column="0">
-            <ListView>
-
-            </ListView>
+        <StackPanel Name="FileManager" VerticalAlignment="Stretch" Grid.Column="0">
+           
         </StackPanel>
         <StackPanel VerticalAlignment="Stretch" Grid.Column="1" Padding="20">
             <Grid>
@@ -24,12 +22,14 @@
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="100"/>
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <TextBlock FontSize="20" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">Note App</TextBlock>
                 <TextBox x:Name="RebCustom" 
                              AutomationProperties.Name="editor with custom menu"
                              Width="Auto" VerticalAlignment="Stretch" MinHeight="500" Height="Auto" Grid.Row="1"/>
                 <Button Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Stretch" Click="Submit">Submit Note</Button>
+                <Button Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Stretch" Click="Refresh">Refresh</Button>
             </Grid>
         </StackPanel>
     </Grid>

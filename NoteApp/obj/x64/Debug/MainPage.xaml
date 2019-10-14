@@ -13,19 +13,23 @@
             <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel VerticalAlignment="Stretch" Grid.Column="0"></StackPanel>
+        <StackPanel x:ConnectionId='2' Name="FileManager" VerticalAlignment="Stretch" Grid.Column="0">
+           
+        </StackPanel>
         <StackPanel VerticalAlignment="Stretch" Grid.Column="1" Padding="20">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="100"/>
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <TextBlock FontSize="20" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">Note App</TextBlock>
-                <TextBox x:ConnectionId='2' x:Name="RebCustom" 
+                <TextBox x:ConnectionId='3' x:Name="RebCustom" 
                              AutomationProperties.Name="editor with custom menu"
                              Width="Auto" VerticalAlignment="Stretch" MinHeight="500" Height="Auto" Grid.Row="1"/>
-                <Button x:ConnectionId='3' Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Stretch"               >Submit Note</Button>
+                <Button x:ConnectionId='4' Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Stretch"               >Submit Note</Button>
+                <Button x:ConnectionId='5' Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Stretch"                >Refresh</Button>
             </Grid>
         </StackPanel>
     </Grid>

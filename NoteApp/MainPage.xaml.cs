@@ -29,6 +29,7 @@ namespace NoteApp
         public MainPage()
         {
             this.InitializeComponent();
+            GetFile();
         }
 
 
@@ -59,12 +60,28 @@ namespace NoteApp
         private async void GetFile()
         {
             var appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-            var assets = await appInstalledFolder.GetFolderAsync("Assets");
+            var assets = ApplicationData.Current.LocalFolder;
             var files = await assets.GetFilesAsync();
+            if (FileManager.Children.Count > 0)
+            {
+                FileManager.Children.RemoveAt(FileManager.Children.Count - 1);
+            }
             foreach (var file in files)
             {
                 var content = ReadNoteFile(file.Name);
+                var textBlock = new TextBlock();
+                textBlock.Text = file.Name + " - " + content;
+                textBlock.Width = 400;
+                textBlock.IsTextSelectionEnabled = true;
+                textBlock.TextWrapping = TextWrapping.Wrap;
+                textBlock.Name = file.Name;
+                FileManager.Children.Add(textBlock);
             }
+        }
+
+        private void Refresh(object sender, RoutedEventArgs e)
+        {
+            GetFile();
         }
     }
 
